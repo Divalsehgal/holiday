@@ -1,5 +1,6 @@
 import Layout from "./layouts/Layout";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Register from "./pages/register";
 
 function App() {
   return (
@@ -20,6 +21,15 @@ function App() {
           </Layout>
         }
       />
+      <Route
+        path="/register"
+        element={
+          <Layout>
+            <Register />
+          </Layout>
+        }
+      />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }
