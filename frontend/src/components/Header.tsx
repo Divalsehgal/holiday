@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAppContext } from "../contexts/AppContext";
+import SignoutButton from "./SignOutButton";
 
 type Props = {};
 
@@ -17,17 +18,17 @@ function Header({}: Props) {
             <>
               <Link
                 to="/my-booking"
-                className="flex bg-white items-center text-blue-600 px-3 font-bold hover:bg-gray-100"
+                className="flex items-center text-white px-3 font-bold hover:bg-blue-600"
               >
                 My Bookings
               </Link>
               <Link
                 to="/my-hotels"
-                className="flex bg-white items-center text-blue-600 px-3 font-bold hover:bg-gray-100"
+                className="flex  items-center text-white px-3 font-bold hover:bg-blue-600"
               >
                 My hotels
               </Link>
-              <button>Sign out</button>
+              <SignoutButton />
             </>
           ) : (
             <Link

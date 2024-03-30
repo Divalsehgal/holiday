@@ -1,31 +1,26 @@
 import Layout from "./layouts/Layout";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Register from "./pages/register";
+import Signin from "./pages/signin";
 
 function App() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <Layout>
-            <>HomePage</>
-          </Layout>
-        }
-      />
-      <Route
-        path="/search"
-        element={
-          <Layout>
-            <>SearchPage</>
-          </Layout>
-        }
-      />
+      <Route path="/" element={<Layout>HomePage</Layout>} />
+      <Route path="/search" element={<Layout>SearchPage</Layout>} />
       <Route
         path="/register"
         element={
           <Layout>
             <Register />
+          </Layout>
+        }
+      />
+      <Route
+        path="/sign-in"
+        element={
+          <Layout>
+            <Signin />
           </Layout>
         }
       />
