@@ -2,9 +2,8 @@ import { Link } from "react-router-dom";
 import { useAppContext } from "../contexts/AppContext";
 import SignoutButton from "./SignOutButton";
 
-type Props = {};
 
-function Header({}: Props) {
+function Header() {
   const { isLoggedIn } = useAppContext();
   return (
     <div className="bg-blue-800 py-6">
@@ -26,7 +25,7 @@ function Header({}: Props) {
                 to="/my-hotels"
                 className="flex  items-center text-white px-3 font-bold hover:bg-blue-600"
               >
-                My hotels
+                My Hotels
               </Link>
               <SignoutButton />
             </>
