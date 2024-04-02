@@ -122,7 +122,7 @@ function Register() {
           type="password"
           id="confirm-password"
           className="rounded border w-full py-1 px-2 font-normal"
-          {...register("password", {
+          {...register("confirmPassword", {
             validate: (val) => {
               if (!val) {
                 return "This field is required";
@@ -140,7 +140,7 @@ function Register() {
       </label>
       <span className="flex justify-between items-center gap-10">
         <span className="text-sm">
-          Already Registerd 
+          Already Registerd
           <Link className=" ml-2 underline" to="/sign-in">
             Login from account here{" "}
           </Link>

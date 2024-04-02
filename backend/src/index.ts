@@ -5,6 +5,7 @@ import mongoose from "mongoose"
 import userRoutes from "./routes/users"
 import authRoutes from "./routes/auth"
 import cookieParser from "cookie-parser"
+import path from "path";
 // mongo db connected
 async function connectToMongoDB() {
     try {
@@ -26,9 +27,11 @@ app.use(cors({
     credentials: true
 }));
 
-app.get('/api/test', async (req: Request, res: Response) => {
-    res.json({ message: 'text' });
-}); // test API
+app.use(express.static(path.join(__dirname,"../../frontend/dist")))
+
+ app.get('/api/test', async (req: Request, res: Response) => {
+        res.json({ message: 'text' });
+    }); // test API
 
 // connect the auth routes
 app.use("/api/auth", authRoutes);
