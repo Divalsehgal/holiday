@@ -16,6 +16,7 @@ function TypeSection() {
         {hotelTypes.map((type) => {
           return (
             <label
+              key={type}
               className={
                 typeWatch === type
                   ? "cursor-pointer bg-blue-300 rounded-full text-sm px-4 py-2 font-semibold"

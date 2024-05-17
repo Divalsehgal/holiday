@@ -1,33 +1,13 @@
- import { useFormContext } from "react-hook-form";
-import { useMutation } from "react-query";
-import * as apiClient from "../api-client";
+import { useFormContext } from "react-hook-form";
 import { HotelFormData } from "./ManageHotelForm";
 
-type Props = {};
 
-function HotelDetailsSection({}: Props) {
+function HotelDetailsSection() {
   const {
     register,
     formState: { errors },
   } = useFormContext<HotelFormData>();
 
-  //   const mutation = useMutation(apiClient.sigin, {
-  //     onSuccess: async function () {
-  //       showToast({
-  //         message: "Login Successfully",
-  //         type: "SUCCESS",
-  //       });
-  //       await queryClient.invalidateQueries("validateToken");
-
-  //       navigate("/");
-  //     },
-  //     onError: function (error: Error) {
-  //       showToast({
-  //         message: error.message,
-  //         type: "ERROR",
-  //       });
-  //     },
-  //   });
   return (
     <div className="flex flex-col gap-4 ">
       <h1 className="text-3xl font-bold mb-3">Add Hotel</h1>
@@ -124,7 +104,7 @@ function HotelDetailsSection({}: Props) {
         >
           <option value="">Select as Rating</option>
           {[1, 2, 3, 4, 5].map((value) => {
-            return <option value={value}>{value}</option>;
+            return <option key={value} value={value}>{value}</option>;
           })}
         </select>
         {errors?.starRating && (
