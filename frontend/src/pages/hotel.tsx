@@ -3,9 +3,7 @@ import ManageHotelForm from "../form/ManageHotelForm";
 import * as apiClient from "../api-client";
 import { useAppContext } from "../contexts/AppContext";
 
-type Props = {};
-
-function AddHotel({}: Props) {
+function AddHotel() {
   const { showToast } = useAppContext();
 
   const { mutate, isLoading } = useMutation(apiClient.addMyHotel, {
@@ -24,7 +22,7 @@ function AddHotel({}: Props) {
   });
 
   const handleSave = (hotelFormData: FormData) => {
-    console.log("hotelFormData",hotelFormData);
+    console.log("hotelFormData", hotelFormData);
     mutate(hotelFormData);
   };
   return <ManageHotelForm onSave={handleSave} isLoading={isLoading} />;

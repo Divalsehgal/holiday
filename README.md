@@ -6,6 +6,11 @@ This is a booking website built using the MERN (MongoDB, Express.js, React.js, N
 
 This web application allows users to browse through available bookings, make reservations, and manage their bookings. It provides a user-friendly interface for both customers and administrators to interact with the booking system.
 
+## Features
+1. Admin can maintain the list of hotel through admin apis (registering hotel).
+2. Required details for onboarding : name,city,country,description,type,adultCount,childCount,pricePerNight,facilities,starRating,lastUpdate,imageUrls.
+
+
 ## Technologies Used
 
 - MongoDB: NoSQL database for storing user data, bookings, and other relevant information.
