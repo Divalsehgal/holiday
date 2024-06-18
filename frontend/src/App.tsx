@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import Layout from "./layouts/Layout";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useAppContext } from "./contexts/AppContext";
+import MyHotels from "./pages/my-hotels";
 const Register = lazy(() => import("./pages/register"));
 const Signin = lazy(() => import("./pages/signin"));
 const AddHotel = lazy(() => import("./pages/hotel"));
@@ -45,6 +46,20 @@ function App() {
           }
         />
       )}
+      {isLoggedIn && (
+        <Route
+          path="/my-hotels"
+          element={
+            <Suspense fallback={<>Loading...</>}>
+              <Layout>
+                <MyHotels />
+              </Layout>
+            </Suspense>
+          }
+        />
+      )}
+
+      
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
