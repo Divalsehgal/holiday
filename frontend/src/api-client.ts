@@ -1,8 +1,24 @@
 import { RegisterFormProps } from "./pages/register";
 import { SignInProps } from "./pages/signin";
-import {HotelType} from "../../backend/shared/types"
+
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
 
+type HotelType = {
+    _id: string;
+    userId: string;
+    name: string;
+    city: string;
+    country: string;
+    description: string;
+    type: string;
+    adultCount: number;
+    childCount: number;
+    pricePerNight: number;
+    facilities: string[];
+    starRating: number;
+    lastUpdate: Date;
+    imageUrls: string[];
+}
 
 export const register = async (formData: RegisterFormProps) => {
     const response = await fetch(`${API_BASE_URL}/api/users/register`, {
@@ -79,7 +95,7 @@ export const addMyHotel = async (hotelFormData: FormData) => {
     return response.json();
 };
 
-export const fetchMyHotel = async ( ):Promise<HotelType []> => {
+export const fetchMyHotel = async ( ):Promise<HotelType[]> => {
     const response = await fetch(`${API_BASE_URL}/api/my-hotels`, {
         method: "GET",
         credentials: "include",
