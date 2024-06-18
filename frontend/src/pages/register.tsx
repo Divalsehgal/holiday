@@ -45,7 +45,7 @@ function Register() {
   });
   return (
     <form className="flex flex-col gap-5" onSubmit={handleSubmitHandler}>
-      <h2 className="text-3xl font-bold">Create An Account</h2>
+      <h2 className="heading">Create An Account</h2>
       <div className="flex flex-col md:flex-row gap-5">
         <label
           htmlFor="firstName"

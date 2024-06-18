@@ -51,7 +51,8 @@ test("should allow user to add hotel", async ({ page }) => {
   await page.selectOption('select[name="starRating"]', "3");
 
   await page.getByText("Budget").click();
-  await page.getByLabel("Free Wifi").click();
+  await page.getByLabel("Free Wifi").check();
+  await page.getByLabel("Parking").check();
 
   await page.locator('[name="adultCount"]').fill("4");
   await page.locator('[name="childCount"]').fill("2");
@@ -64,4 +65,23 @@ test("should allow user to add hotel", async ({ page }) => {
   //await expect(page.getByText("Hotel Added Successfully")).toBeVisible();
 
   await page.waitForSelector("text=Hotel Added Successfully");
+});
+
+test("should display user to view hotel", async ({ page }) => {
+  await page.goto(UI_URL);
+
+  await page
+    .getByRole("link", {
+      name: "Sign In",
+    })
+    .click();
+
+  await page.locator("[name=email]").fill("sehgaldival@gmail.com");
+  await page.locator("[name=password]").fill("123456");
+
+  await page.getByRole("button", { name: "Sign In" }).click();
+  await expect(page.getByText("Login Successfully")).toBeVisible();
+  await page.goto(`${UI_URL}my-hotels`);
+ 
+  await expect(page.getByRole("link", { name: "Add Hotels" })).toBeVisible();
 });
