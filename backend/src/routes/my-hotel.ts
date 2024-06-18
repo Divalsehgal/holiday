@@ -3,7 +3,8 @@ import { body } from 'express-validator';
 import { verifyToken } from '../middleware/auth';
 import multer from "multer";
 import cloudinary from "cloudinary"
-import Hotel, { HotelType } from '../models/hotel';
+import Hotel  from '../models/hotel';
+import { HotelType } from '../../shared/types';
 const router = express.Router();
 const storage = multer.memoryStorage();
 const upload = multer({
@@ -55,6 +56,16 @@ router.post('/', verifyToken, [
 
     } catch (error) {
         console.log("Error Creating Hotel:", error)
+        res.status(500).json({ message: "Something went wrong" });
+    }
+})
+
+router.get('/', verifyToken, async (req: Request, res: Response) => {
+    try {
+        const hotels=await Hotel.find({userId:req.userId})
+        res.json(hotels);
+
+    } catch (error) {
         res.status(500).json({ message: "Something went wrong" });
     }
 })

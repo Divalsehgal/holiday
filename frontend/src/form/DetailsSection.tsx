@@ -10,7 +10,7 @@ function HotelDetailsSection() {
 
   return (
     <div className="flex flex-col gap-4 ">
-      <h1 className="text-3xl font-bold mb-3">Add Hotel</h1>
+      <h1 className="heading mb-3">Add Hotel</h1>
       <label htmlFor="name" className="text-gray-700 font-bold text-sm flex-1">
         Name
         <input
@@ -104,7 +104,11 @@ function HotelDetailsSection() {
         >
           <option value="">Select as Rating</option>
           {[1, 2, 3, 4, 5].map((value) => {
-            return <option key={value} value={value}>{value}</option>;
+            return (
+              <option key={value} value={value}>
+                {value}
+              </option>
+            );
           })}
         </select>
         {errors?.starRating && (
